@@ -9,7 +9,7 @@ const ingredients = [
 ];
 
 let ulList = document.getElementById("ingredients");
-const kitchenIngredients = ingredients.forEach(ingredient => {
+const kitchenIngredients = ingredients.map(ingredient => {
   let items = document.createElement("li");
   items.innerHTML = ingredient;
   ulList.append(items);
