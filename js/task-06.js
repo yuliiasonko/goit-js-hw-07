@@ -12,30 +12,23 @@
 
 
 
-
 let inputVal = document.getElementById("validation-input");
-
+inputVal.setAttribute('style', ' border: 3px solid #bdbdbd;');
 let totalLenght = inputVal.getAttribute("data-length");
 let intTotallenght = parseInt(totalLenght, 10);
 
-inputVal.oninput = function() {
+inputVal.oninput = function () {
   if (inputVal.value.length === intTotallenght) {
-    inputVal.classList.remove("invalid");
-      inputVal.classList.add("valid");
-      const validColor = document.querySelector('.valid');
-      validColor.setAttribute('style', ' border-color: #4caf50;');
+    inputVal.classList.remove('invalid');
+    inputVal.classList.add('valid');
+    this.setAttribute('style', ' border-color: #4caf50;');
+    // const validColor = document.querySelector('.valid');
+    // validColor.setAttribute('style', ' border-color: #4caf50;');
+  } else {
+    inputVal.classList.add('invalid')
+    inputVal.classList.remove('valid');
+    this.setAttribute('style', ' border-color: #f44336;');
+    // const invalidColor = document.querySelector('.invalid');
+    // invalidColor.setAttribute('style', ' border-color: #f44336;');
   }
-  if (inputVal.value.length === 0) {
-    inputVal.classList.remove("valid");
-      inputVal.classList.remove("invalid");
-      inputVal.classList.add("none");
-      const noneColor = document.querySelector('.none');
-      noneColor.setAttribute('style', ' border: 3px solid #bdbdbd;');
-  }
-  if (inputVal.value.length !== intTotallenght && inputVal.value.length !== 0) {
-      inputVal.classList.add("invalid");
- const invalidColor = document.querySelector('.invalid');
-      invalidColor.setAttribute('style', ' border-color: #f44336;');
-  }
-};
-
+}
